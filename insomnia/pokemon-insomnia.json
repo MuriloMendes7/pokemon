@@ -1,0 +1,110 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-10-29T12:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v10.0.0",
+  "resources": [
+    {
+      "_id": "wrk_api_spring_pokemon",
+      "_type": "workspace",
+      "parentId": null,
+      "name": "API Spring - Pokemon",
+      "description": "Requisições da API Restful com Spring - Pokémon",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_api_spring_pokemon_base",
+      "_type": "environment",
+      "parentId": "wrk_api_spring_pokemon",
+      "name": "Base Environment",
+      "data": {}
+    },
+    {
+      "_id": "req_pokemon_01_cadastro",
+      "_type": "request",
+      "parentId": "wrk_api_spring_pokemon",
+      "name": "cadastro",
+      "description": "POST - cadastra um pokémon (retorna 201 CREATED)",
+      "method": "POST",
+      "url": "localhost:8080/pokemon",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"nome\": \"Bulbasaur\",\n\t\"altura\": 0.7,\n\t\"peso\": 6.9,\n\t\"categoria\": \"Semente\",\n\t\"dataDaCaptura\": \"2026-10-10\",\n\t\"urlImagem\": \"https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "metaSortKey": -1000
+    },
+    {
+      "_id": "req_pokemon_02_cadastro_invalido",
+      "_type": "request",
+      "parentId": "wrk_api_spring_pokemon",
+      "name": "cadastro inválido",
+      "description": "POST com dados que quebram o Bean Validation (retorna 400 BAD REQUEST)",
+      "method": "POST",
+      "url": "localhost:8080/pokemon",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"nome\": \"\",\n\t\"altura\": -1.0,\n\t\"peso\": -5.0,\n\t\"categoria\": \"\",\n\t\"dataDaCaptura\": \"2099-01-01\",\n\t\"urlImagem\": \"\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "metaSortKey": -900
+    },
+    {
+      "_id": "req_pokemon_03_consulta",
+      "_type": "request",
+      "parentId": "wrk_api_spring_pokemon",
+      "name": "consulta",
+      "description": "GET - lista todos os pokémons (retorna 200 OK)",
+      "method": "GET",
+      "url": "localhost:8080/pokemon",
+      "body": {},
+      "headers": [],
+      "metaSortKey": -800
+    },
+    {
+      "_id": "req_pokemon_04_consulta_codigo",
+      "_type": "request",
+      "parentId": "wrk_api_spring_pokemon",
+      "name": "consulta código",
+      "description": "GET - busca um pokémon pelo código (200 OK ou 404 NOT FOUND)",
+      "method": "GET",
+      "url": "localhost:8080/pokemon/1",
+      "body": {},
+      "headers": [],
+      "metaSortKey": -700
+    },
+    {
+      "_id": "req_pokemon_05_atualizar",
+      "_type": "request",
+      "parentId": "wrk_api_spring_pokemon",
+      "name": "atualizar",
+      "description": "PUT - atualiza um pokémon pelo código (200 OK ou 404 NOT FOUND)",
+      "method": "PUT",
+      "url": "localhost:8080/pokemon/1",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"nome\": \"Ivysaur\",\n\t\"altura\": 1.0,\n\t\"peso\": 13.0,\n\t\"categoria\": \"Semente\",\n\t\"dataDaCaptura\": \"2026-10-15\",\n\t\"urlImagem\": \"https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/002.png\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ],
+      "metaSortKey": -600
+    },
+    {
+      "_id": "req_pokemon_06_excluir",
+      "_type": "request",
+      "parentId": "wrk_api_spring_pokemon",
+      "name": "excluir",
+      "description": "DELETE - exclui um pokémon pelo código (204 NO CONTENT)",
+      "method": "DELETE",
+      "url": "localhost:8080/pokemon/1",
+      "body": {},
+      "headers": [],
+      "metaSortKey": -500
+    }
+  ]
+}
